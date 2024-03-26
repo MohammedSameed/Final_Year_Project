@@ -83,6 +83,7 @@ export const CompanionForm = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       if (initialData) {
+        
         await axios.patch(`/api/companion/${initialData.id}`, values);
       } else {
         await axios.post("/api/companion", values);
@@ -161,7 +162,7 @@ export const CompanionForm = ({
                 </FormItem>
               )}
             />
-            <FormField
+             <FormField
               control={form.control}
               name="categoryId"
               render={({ field }) => (
@@ -185,7 +186,7 @@ export const CompanionForm = ({
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> 
           </div>
           <div className="space-y-2 w-full">
             <div>
@@ -231,7 +232,7 @@ export const CompanionForm = ({
           <div className="w-full flex justify-center">
             <Button size="lg" disabled={isLoading}>
               {initialData ? "Edit your companion" : "Create your companion"}
-              <Wand2 className="w-4 h-4 ml-2" />
+             <Wand2 className="w-4 h-4 ml-2" /> 
             </Button>
           </div>
         </form>
